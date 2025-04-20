@@ -1,8 +1,8 @@
 theme: jekyll-theme-minimal
-title: Jingyi Jia's Homepage
-description: AI systems and agent researcher
+title: Jingyi Jia
+description: AI system and agent researcher
 show_downloads: false
-logo: https://github.com/jiajingyyyyyy.png
+logo: /assets/images/avatar.jpg
 name: Jingyi Jia
 github:
   is_project_page: false

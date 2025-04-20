@@ -1,15 +1,15 @@
 @import "{{ site.theme }}";
 
 .wrapper {
-  width: 960px;
+  width: 1200px; /* 增加总宽度，原来是960px */
 }
 
 header {
-  width: 220px; /* 原来默认是270px */
+  width: 250px; /* 适当增加侧边栏宽度 */
 }
 
 section {
-  width: 690px; /* 调整主内容区域宽度 */
+  width: 900px; /* 增加主内容区域宽度 */
 }
 
 header img {
