@@ -1,68 +1,54 @@
-# Astro Starter Kit: Blog
+# 贾竟一
 
-```sh
-npm create astro@latest -- --template blog
-```
+[![Email](https://img.shields.io/badge/Email-jingyijia2005%40gmail.com-blue)](mailto:jingyijia2005@gmail.com)
+[![Phone](https://img.shields.io/badge/Phone-153--8850--7361-green)](tel:15388507361)
+[![GitHub](https://img.shields.io/badge/GitHub-jiajingyyyyyy-181717?logo=github)](https://github.com/jiajingyyyyyy)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+## 📚 教育背景
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**华中科技大学 · 计算机科学与技术 · 本科** | 2022.9 - 2026.6
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+- **排名**: 36/314 (11.5%)
+- **核心课程**: 计算机组成原理 (94), 计算机视觉 (95), 硬件综合训练 (100), 机器学习 (95), 嵌入式系统 (94), C++程序设计 (93), 数据库系统原理 (96)
 
-Features:
+## ⚙️ 科研经历
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+**基于惯性图的Agent工具调用优化** | advised by Prof. [Qinbin Li](https://qinbinli.com/)
 
-## 🚀 Project Structure
+- 提出新型轻量级框架，通过挖掘Agent Function Calling的真实执行轨迹，构建动态惯性图模型
+- 实现基于惯性预测的调用加速机制，提升agent工具调用速度，降低token消耗，同时保证基本不损失执行准确率
+- 作为第一作者推进项目，完成核心框架开发与验证
 
-Inside of your Astro project, you'll see the following folders and files:
+## 👥 项目经历
 
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+**RoboMaster机甲大师雷达站维护** | 2024.3-2024.8
+- 采用多种方法进行雷达和相机的联合标定，提升定位准确性
+- 构建定制数据集，训练基于YOLO的二阶段检测模型，提升目标检测性能
+- 参与构建赛场拓扑图，辅助遮挡位置目标检测
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+**面向容器的虚拟内核框架** | 2023.10-2024.8
+- 负责面向容器的CPU调度虚拟化方案设计与实现。利用 cgroup 和 namespace 机制，设计并实现容器 CPU 调度虚拟化方案，解决容器调度灵活性不足问题
+- 实现容器内独立任务调度和参数视图隔离，支持容器独立配置调度策略和参数。并探索实现基于运行时指标的自适应策略调整
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**基于语义分割的钢材缺陷检测** | 2024.9-2024.11
+- 负责改进已有的经典网络结构，构建轻量级的语义分割模型，并进行数据预处理和模型训练
+- 在已有网络的基础上进一步提升了钢材缺陷检测准确率，相较UNet提升了6%的MIOU
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## 🔧 专业技能
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **程序语言及工具**: Python(熟练), C/C++(熟练), LangChain(熟悉), Linux（熟悉）
+- **语言**: 普通话 (⼆级甲等), 英语 (四级565，六级475)
+- **研究兴趣**: 我专注于更高效更强大的agent框架设计与优化，对MLSys、AIInfra有较为浓厚的兴趣。同时对计算机视觉、LLM、操作系统也有一定了解
 
-## 🧞 Commands
+## 🏆 荣誉奖项
 
-All commands are run from the root of the project, from a terminal:
+- **全国计算机系统能力大赛内核功能赛 · 国赛优胜奖** | 2024.8
+- **全国大学生数学建模竞赛 · 湖北赛区一等奖** | 2024.10
+- **国家励志奖学金** | 2024.12
+- **学习优秀奖学金** | 2024.12
+- **校优秀学生干部** | 2023.12
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📖 其他经历
 
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- 担任学院辅导员助理、班级资助委员，湖北省信息学竞赛巡考员，有一定的组织能力
+- 加入华中科技大学狼牙战队，有RoboMaster World Final 参赛经历
