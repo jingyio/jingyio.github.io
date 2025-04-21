@@ -71,11 +71,26 @@
         .skill-category {
             margin-bottom: 10px;
         }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3498db;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Jingyi Jia</h1>
+        <div class="profile">
+            <img src="/assets/images/avatar.jpg" alt="Jingyi Jia" class="avatar">
+            <h1>Jingyi Jia</h1>
+        </div>
         <div class="language-switch">
             <a href="index_cn.html">中文</a>
         </div>

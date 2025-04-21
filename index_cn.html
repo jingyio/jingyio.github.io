@@ -71,11 +71,26 @@
         .skill-category {
             margin-bottom: 10px;
         }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3498db;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>贾竟一</h1>
+        <div class="profile">
+            <img src="/assets/images/avatar.jpg" alt="贾竟一" class="avatar">
+            <h1>贾竟一</h1>
+        </div>
         <div class="language-switch">
             <a href="index.html">English</a>
         </div>
@@ -106,7 +121,7 @@
         <div class="experience-item">
             <div class="experience-header">
                 <strong>基于惯性图的Agent工具调用优化</strong>
-                <span>指导教师：<a href="https://qinbinli.com/">李钦斌教授</a></span>
+                <span>指导教师：<a href="https://qinbinli.com/">李钦宾教授</a></span>
             </div>
             <ul>
                 <li>提出新型轻量级框架，通过挖掘Agent Function Calling的真实执行轨迹，构建动态惯性图模型</li>
