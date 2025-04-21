@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jingyi Jia - Resume</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .language-switch {
+            text-align: right;
+        }
+        .language-switch a {
+            color: #3498db;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .language-switch a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .education-item, .experience-item, .project-item {
+            margin-bottom: 15px;
+        }
+        .education-header, .experience-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-category {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Jingyi Jia</h1>
+        <div class="language-switch">
+            <a href="index_cn.html">中文</a>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <a href="mailto:jingyijia2005@gmail.com">📧 jingyijia2005@gmail.com</a>
+        <a href="tel:15388507361">📞 153-8850-7361</a>
+        <a href="https://github.com/jiajingyyyyyy">🔗 GitHub: jiajingyyyyyy</a>
+    </div>
+
+    <div class="section">
+        <h2>📚 Education</h2>
+        <div class="education-item">
+            <div class="education-header">
+                <strong>Huazhong University of Science and Technology · Computer Science and Technology · Undergraduate</strong>
+                <span>Sep 2022 - Jun 2026</span>
+            </div>
+            <ul>
+                <li><strong>Ranking</strong>: 36/314 (Top 11.5%)</li>
+                <li><strong>Core Courses</strong>: Computer Organization (94), Computer Vision (95), Hardware Synthesis Training (100), Machine Learning (95), Embedded Systems (94), C++ Programming (93), Database System Principles (96)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⚙️ Research Experience</h2>
+        <div class="experience-item">
+            <div class="experience-header">
+                <strong>Optimizing Agent Tool Calling with Inertial Graphs</strong>
+                <span>Advised by Prof. <a href="https://qinbinli.com/">Qinbin Li</a></span>
+            </div>
+            <ul>
+                <li>Proposed a novel lightweight framework that constructs dynamic inertial graph models by mining real execution trajectories of Agent Function Calling</li>
+                <li>Implemented an inertial prediction-based acceleration mechanism to enhance agent tool calling speed and reduce token consumption while maintaining execution accuracy</li>
+                <li>Led the project as the first author, completed core framework development and validation</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>👥 Project Experience</h2>
+        <div class="project-item">
+            <div class="project-header">
+                <strong>RoboMaster Radar Station Maintenance</strong>
+                <span>Mar 2024 - Aug 2024</span>
+            </div>
+            <ul>
+                <li>Employed various methods for joint calibration of radar and cameras to improve positioning accuracy</li>
+                <li>Built custom datasets and trained a two-stage detection model based on YOLO to enhance object detection performance</li>
+                <li>Participated in constructing arena topology maps to assist with object detection in occluded positions</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <strong>Virtual Kernel Framework for Containers</strong>
+                <span>Oct 2023 - Aug 2024</span>
+            </div>
+            <ul>
+                <li>Responsible for designing and implementing CPU scheduling virtualization solutions for containers, utilizing cgroup and namespace mechanisms to address container scheduling flexibility issues</li>
+                <li>Implemented independent task scheduling and parameter view isolation within containers, supporting container-specific scheduling policy and parameter configuration</li>
+                <li>Explored runtime metrics-based adaptive policy adjustment implementation</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <strong>Steel Surface Defect Detection Based on Semantic Segmentation</strong>
+                <span>Sep 2024 - Nov 2024</span>
+            </div>
+            <ul>
+                <li>Improved existing classic network architectures to build lightweight semantic segmentation models, performing data preprocessing and model training</li>
+                <li>Further enhanced steel defect detection accuracy on the foundation of existing networks, achieving a 6% MIOU improvement compared to UNet</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Skills</h2>
+        <div class="skill-category">
+            <strong>Programming Languages & Tools:</strong> Python (Proficient), C/C++ (Proficient), LangChain (Familiar), Linux (Familiar)
+        </div>
+        <div class="skill-category">
+            <strong>Languages:</strong> Mandarin (Level 2A), English (CET-4: 565, CET-6: 475)
+        </div>
+        <div class="skill-category">
+            <strong>Research Interests:</strong> I focus on designing and optimizing more efficient and powerful agent frameworks, with strong interests in MLSys and AIInfra. I also have knowledge in computer vision, LLMs, and operating systems.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🏆 Awards</h2>
+        <ul>
+            <li><strong>National Computer System Capability Competition Kernel Function Competition · National Excellence Award</strong> | Aug 2024</li>
+            <li><strong>National College Students Mathematical Modeling Competition · Hubei Province First Prize</strong> | Oct 2024</li>
+            <li><strong>National Inspirational Scholarship</strong> | Dec 2024</li>
+            <li><strong>Academic Excellence Scholarship</strong> | Dec 2024</li>
+            <li><strong>University Outstanding Student Cadre</strong> | Dec 2023</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📖 Other Experience</h2>
+        <ul>
+            <li>Served as assistant to college counselors, class financial aid committee member, and invigilator for Hubei Province Informatics Competition, demonstrating organizational ability</li>
+            <li>Joined HUST Wolfteeth Team, participated in the RoboMaster World Final</li>
+        </ul>
+    </div>
+</body>
+</html> 
