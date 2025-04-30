@@ -1,0 +1,1003 @@
+/* 优化配色方案，更加符合苹果设计美学 */
+:root {
+    --apple-background: #f5f5f7;
+    --apple-card-bg: #ffffff;
+    --apple-text-primary: #1d1d1f;
+    --apple-text-secondary: #86868b;
+    --apple-text-tertiary: #6e6e73;
+    --apple-blue: #0066cc;
+    --apple-blue-hover: #0071e3;
+    --apple-highlight: #5ac8fa;
+    --apple-border: rgba(0, 0, 0, 0.1);
+    --apple-border-light: rgba(0, 0, 0, 0.05);
+    --apple-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+    --apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --apple-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+    --apple-gradient: linear-gradient(90deg, #0066cc, #5ac8fa);
+    
+    /* 深色模式变量 */
+    --apple-dark-background: #000000;
+    --apple-dark-card-bg: #1d1d1f;
+    --apple-dark-card-bg-hover: #2c2c2e;
+    --apple-dark-card-bg-active: #3a3a3c;
+    --apple-dark-text-primary: #f5f5f7;
+    --apple-dark-text-secondary: #a1a1a6;
+    --apple-dark-text-tertiary: #86868b;
+    --apple-dark-blue: #0071e3;
+    --apple-dark-blue-hover: #0077ed;
+    --apple-dark-highlight: #5ac8fa;
+    --apple-dark-border: rgba(255, 255, 255, 0.1);
+    --apple-dark-border-light: rgba(255, 255, 255, 0.05);
+    --apple-dark-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+    --apple-dark-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --apple-dark-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+    --apple-dark-gradient: linear-gradient(90deg, #0071e3, #5ac8fa);
+}
+
+/* 应用新的配色变量 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: var(--apple-text-primary);
+    display: flex;
+    min-height: 100vh;
+    background: var(--apple-background);
+    max-width: 100%;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar {
+    width: 260px;
+    background: var(--apple-card-bg);
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--apple-border-light);
+    transition: all 0.3s ease;
+    box-shadow: var(--apple-shadow-sm);
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-name {
+    font-size: 1.5em;
+    margin: 0;
+    color: var(--apple-text-primary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.sidebar-title {
+    font-size: 1.05em;
+    color: var(--apple-text-primary);
+    margin: 22px 0 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--apple-border-light);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.sidebar-links a {
+    color: var(--apple-text-primary);
+    text-decoration: none;
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    background-color: rgba(0, 0, 0, 0.02);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.sidebar-links a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+/* 主内容区域配色 */
+.main-content {
+    flex: 1;
+    margin-left: 300px; /* 侧边栏宽度(260px) + 侧边栏padding(20px*2) */
+    padding: 40px 60px;
+    max-width: calc(100% - 300px);
+    background: var(--apple-card-bg);
+    min-height: 100vh;
+    box-shadow: var(--apple-shadow-sm);
+}
+
+/* 部分卡片配色 */
+.section {
+    background: var(--apple-card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 35px;
+    box-shadow: var(--apple-shadow-sm);
+    border: 1px solid var(--apple-border-light);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--apple-shadow-md);
+}
+
+.section-header h2 {
+    font-weight: 600;
+    color: var(--apple-text-primary);
+    letter-spacing: -0.02em;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.section-arrow {
+    color: var(--apple-text-secondary);
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+/* 项目条目配色优化 */
+.project-item, .experience-item, .education-item {
+    background: var(--apple-background);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid var(--apple-border-light);
+}
+
+.project-item:hover, .experience-item:hover, .education-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--apple-shadow-md);
+    background: var(--apple-card-bg);
+}
+
+.project-header strong, .experience-header strong, .education-header strong {
+    font-weight: 600;
+    color: var(--apple-text-primary);
+    font-size: 1.1em;
+}
+
+.project-header span, .experience-header span, .education-header span {
+    color: var(--apple-text-secondary);
+    font-size: 0.95em;
+}
+
+/* 列表项配色 */
+li {
+    margin-bottom: 8px;
+    position: relative;
+    color: var(--apple-text-tertiary);
+    line-height: 1.5;
+}
+
+.project-item ul li::before, .experience-item ul li::before {
+    content: "•";
+    color: var(--apple-blue);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* 技能部分配色 */
+.skill-category {
+    background: var(--apple-background);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    box-shadow: var(--apple-shadow-sm);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid var(--apple-border-light);
+}
+
+.skill-category:hover {
+    transform: translateY(-3px);
+    background: var(--apple-card-bg);
+    box-shadow: var(--apple-shadow-md);
+}
+
+.skill-category strong {
+    font-weight: 600;
+    color: var(--apple-text-primary);
+}
+
+.progress-container {
+    margin-top: 12px;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--apple-gradient);
+    border-radius: 3px;
+}
+
+/* 奖项和其他经历列表项配色 */
+.awards-list li, .other-list li {
+    background: var(--apple-background);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    list-style-type: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid var(--apple-border-light);
+}
+
+.awards-list li:hover, .other-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--apple-shadow-md);
+    background: var(--apple-card-bg);
+}
+
+.awards-list li strong, .other-list li strong {
+    color: var(--apple-text-primary);
+    font-weight: 600;
+}
+
+/* 链接颜色 */
+a {
+    color: var(--apple-blue);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--apple-blue-hover);
+}
+
+/* 语言切换按钮 */
+.sidebar .language-switch a {
+    color: var(--apple-blue);
+    text-decoration: none;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 500;
+    background-color: rgba(0, 102, 204, 0.1);
+    box-shadow: var(--apple-shadow-sm);
+}
+
+.sidebar .language-switch a:hover {
+    background-color: rgba(0, 102, 204, 0.15);
+    color: var(--apple-blue-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--apple-shadow-md);
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 10px;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: var(--apple-shadow-sm);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--apple-shadow-md);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* 深色模式整体配色 */
+.dark-theme {
+    background-color: var(--apple-dark-background);
+    color: var(--apple-dark-text-primary);
+}
+
+.dark-theme .sidebar {
+    background: var(--apple-dark-card-bg);
+    border-right-color: var(--apple-dark-border-light);
+    box-shadow: none;
+}
+
+.dark-theme .main-content {
+    background: var(--apple-dark-background);
+    box-shadow: none;
+}
+
+.dark-theme .section {
+    background: var(--apple-dark-card-bg);
+    border-color: var(--apple-dark-border-light);
+    box-shadow: var(--apple-dark-shadow-sm);
+}
+
+.dark-theme .section:hover {
+    box-shadow: var(--apple-dark-shadow-md);
+}
+
+.dark-theme .project-item, 
+.dark-theme .experience-item, 
+.dark-theme .education-item,
+.dark-theme .skill-category,
+.dark-theme .awards-list li, 
+.dark-theme .other-list li {
+    background: var(--apple-dark-card-bg-hover);
+    border-color: var(--apple-dark-border-light);
+}
+
+.dark-theme .project-item:hover, 
+.dark-theme .experience-item:hover, 
+.dark-theme .education-item:hover,
+.dark-theme .skill-category:hover,
+.dark-theme .awards-list li:hover, 
+.dark-theme .other-list li:hover {
+    background: var(--apple-dark-card-bg-active);
+    box-shadow: var(--apple-dark-shadow-md);
+}
+
+.dark-theme .progress-container {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .progress-bar {
+    background: var(--apple-dark-gradient);
+}
+
+.dark-theme li {
+    color: var(--apple-dark-text-secondary);
+}
+
+.dark-theme a {
+    color: var(--apple-dark-blue);
+}
+
+.dark-theme a:hover {
+    color: var(--apple-dark-blue-hover);
+}
+
+.dark-theme .section-arrow,
+.dark-theme .project-header span, 
+.dark-theme .experience-header span, 
+.dark-theme .education-header span {
+    color: var(--apple-dark-text-tertiary);
+}
+
+.dark-theme .section-header h2,
+.dark-theme .sidebar-name,
+.dark-theme .sidebar-title,
+.dark-theme .project-header strong, 
+.dark-theme .experience-header strong, 
+.dark-theme .education-header strong,
+.dark-theme .skill-category strong,
+.dark-theme .awards-list li strong, 
+.dark-theme .other-list li strong {
+    color: var(--apple-dark-text-primary);
+}
+
+.dark-theme .theme-toggle {
+    background: rgba(45, 45, 45, 0.85);
+    color: var(--apple-dark-text-primary);
+    box-shadow: var(--apple-dark-shadow-sm);
+}
+
+.dark-theme .theme-toggle:hover {
+    background: rgba(60, 60, 60, 0.95);
+    box-shadow: var(--apple-dark-shadow-md);
+}
+
+.dark-theme .sidebar .language-switch a {
+    color: var(--apple-dark-blue);
+    background-color: rgba(0, 113, 227, 0.15);
+    box-shadow: var(--apple-dark-shadow-sm);
+}
+
+.dark-theme .sidebar .language-switch a:hover {
+    background-color: rgba(0, 113, 227, 0.25);
+    color: var(--apple-dark-highlight);
+    box-shadow: var(--apple-dark-shadow-md);
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 20px;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    .theme-toggle {
+        top: 15px;
+        left: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .sidebar-avatar {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+    }
+    
+    .sidebar-links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .sidebar-links li {
+        display: inline-block;
+    }
+    
+    .sidebar-links a {
+        padding: 4px 8px;
+        font-size: 0.9em;
+    }
+    
+    .sidebar .language-switch {
+        position: static;
+        text-align: center;
+        margin: 15px 0;
+    }
+}
+
+/* Layout */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: #1d1d1f;
+    display: flex;
+    min-height: 100vh;
+    background: #f5f5f7;
+    max-width: 100%;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar {
+    width: 260px;
+    background: #f5f5f7;
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 300px; /* 侧边栏宽度(260px) + 侧边栏padding(20px*2) */
+    padding: 40px 60px;
+    max-width: calc(100% - 300px);
+    background: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
+}
+
+/* Sidebar styles */
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.sidebar-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: block;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sidebar-avatar:hover {
+    transform: scale(1.03);
+}
+
+.sidebar-name {
+    font-size: 1.5em;
+    margin: 0;
+    color: #1d1d1f;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.sidebar-title {
+    font-size: 1.05em;
+    color: #1d1d1f;
+    margin: 22px 0 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.sidebar-links li {
+    margin-bottom: 10px;
+}
+
+.sidebar-links a {
+    color: #1d1d1f;
+    text-decoration: none;
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    background-color: rgba(0, 0, 0, 0.02);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.sidebar-links a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+/* Dark theme adjustments */
+.dark-theme .sidebar {
+    background: #1d1d1f;
+    border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .sidebar-name,
+.dark-theme .sidebar-title {
+    color: #f5f5f7;
+}
+
+.dark-theme .sidebar-links a {
+    color: #f5f5f7;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .sidebar-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .sidebar .language-switch a {
+    color: #63adff;
+    background-color: rgba(99, 173, 255, 0.1);
+}
+
+.dark-theme .sidebar .language-switch a:hover {
+    background-color: rgba(99, 173, 255, 0.2);
+    color: #63adff;
+}
+
+.dark-theme .section {
+    background: #2d2d2d;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .section-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .section-header h2 {
+    color: #f5f5f7;
+}
+
+/* Responsive design */
+@media (max-width: 1400px) {
+    .main-content {
+        padding: 30px 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 240px;
+    }
+    
+    .main-content {
+        margin-left: 280px; /* 侧边栏宽度(240px) + 侧边栏padding(20px*2) */
+        max-width: calc(100% - 280px);
+        padding: 30px 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 220px;
+        padding: 20px;
+    }
+    
+    .main-content {
+        margin-left: 260px; /* 侧边栏宽度(220px) + 侧边栏padding(20px*2) */
+        max-width: calc(100% - 260px);
+        padding: 25px 30px;
+    }
+}
+
+/* Project items and experience items */
+.project-item, .experience-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.project-item:hover, .experience-item:hover, 
+.project-item.hover, .experience-item.hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme adjustments */
+.dark-theme .project-item, .dark-theme .experience-item {
+    background: #3d3d3d;
+}
+
+/* Section styles */
+.section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.section-header h2 {
+    font-weight: 600;
+    color: #1d1d1f;
+    letter-spacing: -0.02em;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.section-arrow {
+    color: #86868b;
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+.section-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.section-content.expanded {
+    max-height: 2000px;
+}
+
+/* Item styles with hover effects */
+.project-item, .experience-item, .award-item, .other-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.project-item:hover, .experience-item:hover, .award-item:hover, .other-item:hover,
+.project-item.hover, .experience-item.hover, .award-item.hover, .other-item.hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* List item hover effects */
+#awards li, #other li {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    list-style-position: inside;
+}
+
+#awards li:hover, #other li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme adjustments */
+.dark-theme .project-item, .dark-theme .experience-item, 
+.dark-theme #awards li, .dark-theme #other li {
+    background: #3d3d3d;
+}
+
+.dark-theme .section-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 移动语言切换按钮到更明显的位置 */
+.sidebar .language-switch {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    margin-top: 0;
+    z-index: 100;
+}
+
+.sidebar .language-switch a {
+    color: #0066cc;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 500;
+    background-color: rgba(0, 102, 204, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar .language-switch a:hover {
+    background-color: rgba(0, 102, 204, 0.2);
+    color: #0066cc;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme adjustments */
+.dark-theme .sidebar .language-switch a {
+    color: #63adff;
+    background-color: rgba(99, 173, 255, 0.1);
+}
+
+.dark-theme .sidebar .language-switch a:hover {
+    background-color: rgba(99, 173, 255, 0.2);
+    color: #63adff;
+}
+
+/* 修复英文版的专业技能部分 */
+#skills .skill-category {
+    margin-bottom: 15px;
+    display: block;
+    clear: both;
+}
+
+/* 项目条目样式优化 */
+.project-item, .experience-item, .education-item {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.project-item:hover, .experience-item:hover, .education-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+}
+
+.project-header, .experience-header, .education-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.project-header strong, .experience-header strong, .education-header strong {
+    font-weight: 600;
+    color: #1d1d1f;
+    font-size: 1.1em;
+}
+
+.project-header span, .experience-header span, .education-header span {
+    color: #86868b;
+    font-size: 0.95em;
+}
+
+/* 列表样式优化 */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+    position: relative;
+    color: #424245;
+    line-height: 1.5;
+}
+
+.project-item ul li, .experience-item ul li {
+    list-style-type: none;
+    padding-left: 15px;
+}
+
+.project-item ul li::before, .experience-item ul li::before {
+    content: "•";
+    color: #0066cc;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* 技能部分优化 */
+.skill-category {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.skill-category:hover {
+    transform: translateY(-3px);
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.skill-category strong {
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.progress-container {
+    margin-top: 12px;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #0066cc, #5ac8fa);
+    border-radius: 3px;
+}
+
+/* 奖项和其他经历列表项美化 */
+.awards-list li, .other-list li {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    list-style-type: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.awards-list li:hover, .other-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+}
+
+.awards-list li strong, .other-list li strong {
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+/* 链接样式 */
+a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #0077ed;
+}
+
+/* 深色模式优化项目条目 */
+.dark-theme .project-item, 
+.dark-theme .experience-item, 
+.dark-theme .education-item,
+.dark-theme .skill-category,
+.dark-theme .awards-list li, 
+.dark-theme .other-list li {
+    background: #2c2c2e;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .project-item:hover, 
+.dark-theme .experience-item:hover, 
+.dark-theme .education-item:hover,
+.dark-theme .skill-category:hover,
+.dark-theme .awards-list li:hover, 
+.dark-theme .other-list li:hover {
+    background: #3a3a3c;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .progress-container {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .progress-bar {
+    background: linear-gradient(90deg, #0077ed, #5ac8fa);
+}
+
+.dark-theme li {
+    color: #a1a1a6;
+}
+
+.dark-theme .section-arrow,
+.dark-theme .project-header span, 
+.dark-theme .experience-header span, 
+.dark-theme .education-header span {
+    color: #86868b;
+}
+
+.dark-theme .section-header h2,
+.dark-theme .project-header strong, 
+.dark-theme .experience-header strong, 
+.dark-theme .education-header strong,
+.dark-theme .skill-category strong,
+.dark-theme .awards-list li strong, 
+.dark-theme .other-list li strong {
+    color: #f5f5f7;
+} 
