@@ -71,8 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 默认展开所有部分
                 content.classList.add('expanded');
             }
+            // 立即添加fade-in类，不等待滚动
+            section.classList.add('fade-in');
         });
     }
+    
+    // 初始化进度条
+    animateProgressBars();
     
     // 为所有列表项添加悬停效果
     const awardItems = document.querySelectorAll('#awards li, #other li');
@@ -109,14 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    // 初始化项目卡片
-    document.querySelectorAll('.progress-bar').forEach(bar => {
-        const value = bar.getAttribute('data-value');
-        if (value) {
-            bar.style.width = value + '%';
-        }
-    });
 });
 
 // Add animation to sections when they come into view
