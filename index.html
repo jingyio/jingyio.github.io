@@ -22,9 +22,9 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* --- 增加淡入动画 --- */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+        /* 浮现动画 */
+        @keyframes soulReveal {
+            from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -35,7 +35,6 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            animation: fadeIn 0.8s ease-out forwards;
         }
 
         .container {
@@ -46,16 +45,14 @@
             position: relative;
         }
 
-        /* --- Sidebar (Sticky) --- */
+        /* Sidebar */
         .sidebar {
             width: 340px; 
             padding: 60px 30px;
             border-right: 1px solid #f0f0f0; 
-            
             position: sticky; 
             top: 0;           
             height: 100vh;    
-            
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -64,7 +61,7 @@
             overflow-y: auto; 
         }
 
-        /* --- Main Content --- */
+        /* Main Content */
         .main-content {
             flex: 1;
             padding: 80px 70px;
@@ -131,8 +128,15 @@
             margin-bottom: 25px; font-family: var(--font-heading);
         }
 
-        /* Motto */
-        .motto-box { margin: 15px 0 30px 0; }
+        /* --- Motto (调整速度) --- */
+        .motto-box { 
+            margin: 15px 0 30px 0; 
+            opacity: 0; 
+            /* 【修改点】从 2s 改为 1s，更快更干脆 */
+            animation: soulReveal 1s ease-out forwards; 
+            /* 【修改点】从 0.3s 改为 0.1s，减少等待 */
+            animation-delay: 0.1s;
+        }
         .motto { font-family: var(--font-heading); font-size: 1.05rem; font-style: italic; color: #555; }
         .motto span { 
             color: var(--accent-color); 
@@ -232,6 +236,7 @@
                 padding: 60px 20px 40px 20px; position: relative; top: auto;
             }
             .main-content { padding: 40px 25px; height: auto; overflow: visible; }
+            .motto-box { opacity: 1; animation: none; } 
             .pub-item { flex-direction: column; gap: 20px; align-items: flex-start; }
             .pub-image { flex: 0 0 auto; width: 100%; max-width: 100%; }
         }
@@ -303,7 +308,7 @@
                         </div>
                         <div class="pub-meta">
                             <strong>Jingyi Jia</strong>, Qinbin Li<sup>*</sup><br>
-                            <span class="pub-venue">AAAI, 2026</span>
+                            <span class="pub-venue">AAAI, 2026 (Under Review)</span>
                         </div>
                         
                         <div class="pub-desc">
