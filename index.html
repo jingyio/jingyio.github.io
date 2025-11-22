@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -22,49 +22,57 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* --- 增加淡入动画 --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: var(--font-body);
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
         .container {
             display: flex;
             width: 100%;
             max-width: 1450px; 
-            height: 100vh;
             background-color: transparent; 
+            position: relative;
         }
 
-        /* --- Sidebar --- */
+        /* --- Sidebar (Sticky) --- */
         .sidebar {
             width: 340px; 
-            height: 100%;
             padding: 60px 30px;
             border-right: 1px solid #f0f0f0; 
+            
+            position: sticky; 
+            top: 0;           
+            height: 100vh;    
+            
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center; 
             flex-shrink: 0;
-            overflow-y: auto;
+            overflow-y: auto; 
         }
 
         /* --- Main Content --- */
         .main-content {
             flex: 1;
-            height: 100%;
-            overflow-y: auto;
             padding: 80px 70px;
-            scroll-behavior: smooth;
         }
 
-        .sidebar::-webkit-scrollbar, .main-content::-webkit-scrollbar { display: none; }
-        .sidebar, .main-content { -ms-overflow-style: none; scrollbar-width: none; }
+        .sidebar::-webkit-scrollbar { display: none; }
+        body::-webkit-scrollbar { display: none; }
+        .sidebar, body { -ms-overflow-style: none; scrollbar-width: none; }
 
         a { 
             color: var(--text-main); 
@@ -77,7 +85,7 @@
             border-bottom-color: var(--accent-color); 
         }
 
-        /* --- Photo --- */
+        /* Photo */
         .photo-frame {
             width: 190px; 
             aspect-ratio: 3/4;
@@ -96,57 +104,56 @@
             transform: scale(1.02);
         }
 
+        /* Name */
         .name {
             font-family: var(--font-heading);
             font-size: 1.9rem;
             font-weight: 700;
             margin-bottom: 5px;
             color: #111;
-            
-            /* 让名字和注音垂直排列，居中 */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 1.2;
+            display: flex; flex-direction: column; align-items: center; line-height: 1.2;
         }
-        .pronunciation {
-            font-family: var(--font-body); 
-            font-size: 0.95rem;   /* 字号只有名字的一半 */
-            font-weight: 400;
-            color: #999;          /* 浅灰色，不抢眼 */
-            margin-top: 6px;      /* 稍微拉开一点距离 */
-            font-style: italic;   /* 斜体更显学术 */
-            opacity: 0.8;
+        .name-row {
+            display: flex; align-items: baseline; gap: 10px;
         }
-        .role {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 25px;
-            font-family: var(--font-heading);
-        }
-
-        .motto-box { margin: 15px 0 30px 0; }
-        .motto {
-            font-family: var(--font-heading);
-            font-size: 1.05rem;
-            font-style: italic;
+        .cn-name {
+            font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+            font-size: 1.15rem;
+            font-weight: 500;
             color: #555;
         }
-        .motto span { color: #ccc; margin: 0 6px; font-size: 0.6em; vertical-align: middle;}
-
-        .contact-info p { 
-            font-size: 0.85rem; 
-            color: #777; 
-            margin-bottom: 6px; 
-            font-family: var(--font-main);
+        .pronunciation {
+            font-family: var(--font-body); font-size: 0.95rem; font-weight: 400;
+            color: #999; margin-top: 6px; font-style: italic; opacity: 0.8;
         }
+        .role {
+            font-size: 0.85rem; color: var(--text-light); font-style: italic;
+            margin-bottom: 25px; font-family: var(--font-heading);
+        }
+
+        /* Motto */
+        .motto-box { margin: 15px 0 30px 0; }
+        .motto { font-family: var(--font-heading); font-size: 1.05rem; font-style: italic; color: #555; }
+        .motto span { 
+            color: var(--accent-color); 
+            margin: 0 6px; 
+            font-size: 0.6em; 
+            vertical-align: middle;
+            opacity: 0.8;
+        }
+
+        /* Contact */
+        .contact-info p { 
+            font-size: 0.85rem; color: #777; margin-bottom: 6px; font-family: var(--font-main);
+        }
+        .contact-info a { color: #777; border-bottom: none; }
+        .contact-info a:hover { color: var(--accent-color); }
         
         .social-icons { margin-top: 25px; gap: 20px; display: flex;}
         .social-icons a { border: none; font-size: 1.1rem; color: #aaa; transition: 0.3s;}
         .social-icons a:hover { color: var(--text-main); transform: translateY(-2px); }
 
-        /* --- Sections --- */
+        /* Sections */
         .section { margin-bottom: 60px; max-width: 1000px; }
         
         .section-header {
@@ -162,15 +169,11 @@
         }
 
         p { 
-            margin-bottom: 15px; 
-            line-height: 1.8; 
-            color: #333; 
-            text-align: left; 
-            font-size: 1.02rem;
-            max-width: 950px; 
+            margin-bottom: 15px; line-height: 1.8; color: #333; text-align: left; 
+            font-size: 1.02rem; max-width: 950px; 
         }
 
-        /* --- 论文列表 --- */
+        /* Publications */
         .pub-item {
             display: flex; 
             gap: 45px; 
@@ -179,11 +182,9 @@
         }
         
         .pub-image {
-            /* 保持 38% 占比，紧凑精致 */
             flex: 0 0 38%; 
             width: 38%; 
             height: auto;
-            
             border: 1px solid #eaeaea; 
             border-radius: 4px;
             padding: 4px; 
@@ -191,82 +192,46 @@
             transition: all 0.3s ease;
         }
         .pub-image img {
-            width: 100%;
-            height: auto; 
-            display: block;
+            width: 100%; height: auto; display: block;
             filter: grayscale(100%) contrast(1.05) opacity(0.95); 
             transition: 0.4s;
         }
-        .pub-item:hover .pub-image img {
-            filter: grayscale(0%) opacity(1);
-        }
+        .pub-item:hover .pub-image img { filter: grayscale(0%) opacity(1); }
         .pub-item:hover .pub-image {
             border-color: #ccc;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transform: translateY(-2px);
         }
 
-        .pub-content { 
-            flex: 1; 
-            padding-top: 0; 
-        }
+        .pub-content { flex: 1; padding-top: 0; }
 
         .pub-title { 
-            font-weight: 700; 
-            font-size: 1.3rem; 
-            margin-bottom: 6px; 
-            color: #000; 
-            line-height: 1.25;
+            font-weight: 700; font-size: 1.3rem; margin-bottom: 6px; color: #000; line-height: 1.25;
         }
         .pub-meta { 
-            font-size: 0.95rem; 
-            color: #666; 
-            margin-bottom: 12px; 
-            line-height: 1.5;
+            font-size: 0.95rem; color: #666; margin-bottom: 12px; line-height: 1.5;
         }
-        .pub-venue { 
-            color: var(--accent-color); 
-            font-style: italic; 
-            font-weight: 500;
-        }
+        .pub-venue { color: var(--accent-color); font-style: italic; font-weight: 500; }
 
-        .pub-desc {
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.6; 
-            text-align: left; 
-        }
-        .pub-desc p {
-            margin-bottom: 8px;
-        }
+        .pub-desc { font-size: 0.95rem; color: #444; line-height: 1.6; text-align: left; }
+        .pub-desc p { margin-bottom: 8px; }
         .desc-label {
-            font-weight: 700;
-            color: var(--accent-color); 
-            font-family: var(--font-main); 
-            font-size: 0.85rem;
-            text-transform: uppercase; 
-            letter-spacing: 0.05em;
-            margin-right: 6px;
+            font-weight: 700; color: var(--accent-color); font-family: var(--font-main); 
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 6px;
         }
 
         .hobby-list { display: flex; flex-wrap: wrap; gap: 12px 25px; }
-        .hobby-item { 
-            font-family: var(--font-heading); 
-            font-style: italic; 
-            color: #555; 
-            font-size: 1rem;
-        }
-        .hobby-item:not(:last-child)::after {
-            content: "/";
-            margin-left: 25px;
-            color: #ddd;
-            font-style: normal;
-        }
+        .hobby-item { font-family: var(--font-heading); font-style: italic; color: #555; font-size: 1rem; }
+        .hobby-item:not(:last-child)::after { content: "/"; margin-left: 25px; color: #ddd; font-style: normal; }
 
         @media (max-width: 900px) {
-            .container { max-width: 100%; }
-            .sidebar { width: 100%; height: auto; border-right: none; padding: 40px; }
-            .main-content { padding: 40px; }
+            body { display: block; height: auto; overflow-y: auto; }
+            .container { max-width: 100%; flex-direction: column; height: auto; }
+            .sidebar { 
+                width: 100%; height: auto; border-right: none; border-bottom: 1px solid #f0f0f0; 
+                padding: 60px 20px 40px 20px; position: relative; top: auto;
+            }
+            .main-content { padding: 40px 25px; height: auto; overflow: visible; }
             .pub-item { flex-direction: column; gap: 20px; align-items: flex-start; }
             .pub-image { flex: 0 0 auto; width: 100%; max-width: 100%; }
         }
@@ -278,12 +243,17 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="photo-frame">
-                <img src="assets/images/avatar_origin.jpg" alt="Jingyi Jia">
+                <img src="assets/images/avatar.jpg" alt="Jingyi Jia">
             </div>
             
-            <h1 class="name">Jingyi Jia
+            <h1 class="name">
+                <div class="name-row">
+                    Jingyi Jia 
+                    <span class="cn-name">贾竟一</span>
+                </div>
                 <span class="pronunciation">/ Jing-Yee Jah /</span>
             </h1>
+            
             <div class="role">Undergraduate @ HUST</div>
 
             <div class="motto-box">
@@ -293,7 +263,7 @@
             </div>
 
             <div class="contact-info">
-                <p>jingyijia2005@gmail.com</p>
+                <p><a href="mailto:jingyijia2005@gmail.com">jingyijia2005@gmail.com</a></p>
                 <p>Wuhan, China</p>
             </div>
 
@@ -312,7 +282,7 @@
                     I am a senior undergraduate student at the School of Computer Science and Technology, <strong>Huazhong University of Science and Technology (HUST)</strong>. I am fortunate to be advised by Prof. <a href="https://qinbinli.com/">Qinbin Li</a>.
                 </p>
                 <p>
-                    I will receive my B.Eng. degree in June 2026. Subsequently, I will continue my research journey at HUST as a <strong>Ph.D. student</strong>.
+                    Upon receiving my B.Eng. degree in June 2026, I will continue my research journey at HUST as a <strong>Ph.D. student</strong>.
                 </p>
                 <p>
                     My research interests lie at the intersection of <strong>LLM Agent Frameworks and Systems</strong>, with a specific focus on designing <strong>efficient agent systems</strong>.
@@ -328,19 +298,14 @@
                     </div>
                     
                     <div class="pub-content">
-                        <!-- 1. 标题：纯净，不加杂质 -->
                         <div class="pub-title">
                             AutoTool: Efficient Tool Selection for Large Language Model Agents
                         </div>
-                    
-                        <!-- 2. 元数据区：包含作者和期刊 -->
                         <div class="pub-meta">
                             <strong>Jingyi Jia</strong>, Qinbin Li<sup>*</sup><br>
-                            <!-- 3. 期刊/会议：单独一行，使用强调色和斜体，去掉括号更显大气 -->
                             <span class="pub-venue">AAAI, 2026</span>
                         </div>
                         
-                        <!-- 4. 深度描述 -->
                         <div class="pub-desc">
                             <p>
                                 <span class="desc-label">Motivation</span>
@@ -348,7 +313,7 @@
                             </p>
                             <p>
                                 <span class="desc-label">Contribution</span>
-                                We propose <strong>AutoTool</strong>, which actively manages tool usage inertia via a <em>Tool Inertia Graph</em>. By selectively bypassing LLM inference, it reduces token consumption by <strong>30%</strong> while maintaining competitive performance.
+                                We propose <strong>AutoTool</strong>, which actively manages tool usage inertia via a <em>Tool Inertia Graph</em>. By selectively bypassing LLM inference, it reduces token consumption by up to <strong>30%</strong> while maintaining competitive performance.
                             </p>
                         </div>
                     </div>
