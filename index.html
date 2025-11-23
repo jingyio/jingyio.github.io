@@ -60,7 +60,7 @@
             border-right: 1px solid rgba(0,0,0,0.03); 
             
             position: sticky; 
-            top: 1px;           
+            top: 14vh;           
             /* height: 100vh;     */
             height: auto;    
             align-self: flex-start; /* 确保它贴顶 */
@@ -71,7 +71,7 @@
             justify-content: center; 
             flex-shrink: 0;
             overflow-y: hidden; 
-
+            padding-top: 20px;
             /* ——————【防抖动修复 Start】—————— */
             /* 1. 强制开启 GPU 硬件加速，防止滚动时的渲染抖动 */
             transform: translateZ(0);
@@ -160,7 +160,7 @@
 
         /* Motto */
         .motto-box { 
-            margin: 15px 0 30px 0; 
+            margin: 10px 0 30px 0; 
             opacity: 0; 
             animation: soulReveal 1s ease-out forwards; 
             animation-delay: 0.1s;
