@@ -57,18 +57,31 @@
         .sidebar {
             width: 340px; 
             padding: 60px 30px;
-            border-right: 1px solid #f0f0f0; 
+            border-right: 1px solid rgba(0,0,0,0.03); 
+            
             position: sticky; 
             top: 0;           
             height: 100vh;    
+            
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center; 
             flex-shrink: 0;
             overflow-y: auto; 
-        }
 
+            /* ——————【防抖动修复 Start】—————— */
+            /* 1. 强制开启 GPU 硬件加速，防止滚动时的渲染抖动 */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            
+            /* 2. 告诉浏览器这个元素的变换可能会变化，提前优化 */
+            will-change: transform;
+            
+            /* 3. 防止在某些浏览器（如 Safari/Chrome）中滚动链产生回弹效果导致视觉位移 */
+            overscroll-behavior: contain;
+            /* ——————【防抖动修复 End】—————— */
+        }
         /* Main Content */
         .main-content {
             flex: 1;
@@ -169,7 +182,7 @@
             font-family: var(--font-heading);
             color: #000;
             margin-bottom: 30px;
-            font-size: 1.35rem;       /* 稍微加大一点点 */
+            font-size: 1.5rem;       /* 稍微加大一点点 */
             font-weight: 600;         /* 稍微加粗，由 500 改为 600 */
             letter-spacing: 0.05em;   /* 增加字间距，这是高级感的来源 */
             border-bottom: 2px solid #f4f4f4; /* 加一条极淡的底线辅助分割 */
