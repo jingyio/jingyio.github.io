@@ -120,7 +120,12 @@
             width: 100%; height: 100%; object-fit: cover;
             filter: saturate(60%) contrast(1.1) brightness(1.05);
             transition: 0.5s ease;
+            /* 【新增】开启硬件加速，防止滤镜导致滚动掉帧 */
+            will-change: transform, filter;
+            /* 【新增】这是黑科技，告诉浏览器只渲染可见部分 */
+            content-visibility: auto; 
         }
+        
         .photo-frame:hover img {
             filter: saturate(100%) contrast(1) brightness(1);
             transform: scale(1.02);
@@ -243,6 +248,10 @@
         .pub-image img {
             width: 100%; height: auto; display: block;
             filter: grayscale(100%) contrast(1.05) opacity(0.95); 
+            /* 【新增】同上，防止卡顿 */
+            will-change: filter;
+            /* 【新增】防止大图重排 */
+            backface-visibility: hidden; 
             transition: 0.4s;
         }
         .pub-item:hover .pub-image img { filter: grayscale(0%) opacity(1); }
