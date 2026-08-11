@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jingyi Jia | HUST</title>
-    <meta name="description" content="Personal academic website of Jingyi Jia">
+    <meta name="description" content="Personal academic website of Jingyi Jia (Jeremy)">
+    <link rel="canonical" href="https://jingyio.github.io/">
     
     <link rel="icon" href="assets/images/avatar.jpg" type="image/jpeg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -19,82 +20,96 @@
             color: #000;
         }
         :root {
-            --bg-color: #ffffff; 
-            --text-main: #2c2c2c;
-            --text-light: #666666;
-            --accent-color: #8a1c1c; 
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Lora', serif;
+            --bg-color: #fbfaf7;
+            --text-main: #4f4a46;
+            --text-light: #766f69;
+            --accent-color: #8a1c1c;
+            --font-heading: 'Lato', sans-serif;
+            --font-body: 'Lato', sans-serif;
             --font-ui: 'Lato', sans-serif; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        @keyframes soulReveal {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: var(--font-body);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
         }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            background: #292624;
+            border-bottom: 1px solid rgba(138, 28, 28, 0.65);
+            z-index: 20;
+        }
+
+        .topbar nav {
+            width: 100%;
+            max-width: 1070px;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .topbar a {
+            color: #fff;
+            border: none;
+            font-family: var(--font-ui);
+        }
+
+        .topbar a:hover { color: #e2b9b9; border: none; }
+        .nav-brand { font-size: 1.15rem; font-weight: 700; }
+        .nav-links { display: flex; gap: 34px; }
+        .nav-links a { font-size: 0.95rem; font-weight: 400; }
 
         .container {
-            display: flex;
             width: 100%;
-            max-width: 1450px; 
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 104px 55px 40px;
             background-color: transparent; 
             position: relative;
-            align-items: flex-start; 
         }
 
-        /* Sidebar */
+        /* Horizontal profile */
         .sidebar {
-            width: 340px; 
-            padding: 60px 30px;
-            border-right: 1px solid rgba(0,0,0,0.03); 
-            
-            position: sticky; 
-            top: 14vh;           
-            /* height: 100vh;     */
-            height: auto;    
-            align-self: flex-start; /* 确保它贴顶 */
-            max-height: 100vh; /* 限制最大高度 */
-            display: flex;
-            flex-direction: column;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+            gap: 74px;
             align-items: center;
-            justify-content: center; 
-            flex-shrink: 0;
-            overflow-y: hidden; 
-            padding-top: 20px;
-            /* ——————【防抖动修复 Start】—————— */
-            /* 1. 强制开启 GPU 硬件加速，防止滚动时的渲染抖动 */
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            
-            /* 2. 告诉浏览器这个元素的变换可能会变化，提前优化 */
-            will-change: transform;
-            
-            /* 3. 防止在某些浏览器（如 Safari/Chrome）中滚动链产生回弹效果导致视觉位移 */
-            overscroll-behavior: contain;
-            /* ——————【防抖动修复 End】—————— */
+            padding: 0 95px 70px;
+            scroll-margin-top: 76px;
         }
+
+        .profile-details {
+            min-width: 0;
+            padding-top: 2px;
+            align-self: center;
+        }
+
         /* Main Content */
         .main-content {
-            flex: 1;
-            padding: 80px 70px;
+            width: 100%;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 8px 0 0;
             display: flex;
             flex-direction: column;
         }
 
-        .sidebar::-webkit-scrollbar { display: none; }
         body::-webkit-scrollbar { display: none; }
-        .sidebar, body { -ms-overflow-style: none; scrollbar-width: none; }
+        body { -ms-overflow-style: none; scrollbar-width: none; }
 
         a { 
             color: var(--text-main); 
@@ -109,16 +124,21 @@
 
         /* Photo */
         .photo-frame {
-            width: 190px; 
-            aspect-ratio: 3/4;
-            margin-bottom: 30px;
+            width: 250px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
-            background: #f0f0f0;
+            border: 5px solid var(--bg-color);
+            outline: 1px solid rgba(138, 28, 28, 0.22);
+            box-shadow: 0 8px 24px rgba(71, 49, 39, 0.07);
+            background: #ece5de;
         }
         .photo-frame img {
             width: 100%; height: 100%; object-fit: cover;
-            filter: saturate(60%) contrast(1.1) brightness(1.05);
+            object-position: center 30%;
+            filter: grayscale(94%) sepia(6%) contrast(1.05) brightness(1.03);
+            transform: scale(1.14);
+            transform-origin: center 30%;
             transition: 0.5s ease;
             /* 【新增】开启硬件加速，防止滤镜导致滚动掉帧 */
             will-change: transform, filter;
@@ -127,80 +147,91 @@
         }
         
         .photo-frame:hover img {
-            filter: saturate(100%) contrast(1) brightness(1);
-            transform: scale(1.02);
+            filter: grayscale(68%) sepia(5%) contrast(1.02) brightness(1.10);
+            transform: scale(1.17);
         }
 
         /* Name */
         .name {
             font-family: var(--font-heading);
-            font-size: 1.9rem;
-            font-weight: 700;
-            margin-bottom: 5px;
+            font-size: 2.65rem;
+            font-weight: 400;
+            margin-bottom: 10px;
             color: #111;
-            display: flex; flex-direction: column; align-items: center; line-height: 1.2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.15;
         }
-        .name-row {
-            display: flex; align-items: baseline; gap: 10px;
+        .full-name {
+            margin-top: 7px;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            font-weight: 400;
+            color: var(--text-light);
         }
-        .cn-name {
-            font-family: "Noto Serif SC", serif;
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: #555;
-        }
-        .pronunciation {
-            font-family: var(--font-body); font-size: 0.95rem; font-weight: 400;
-            color: #999; margin-top: 6px; font-style: italic; opacity: 0.8;
-        }
+        .cn-name { font-family: "Noto Sans SC", sans-serif; }
         .role {
-            font-size: 0.85rem; color: var(--text-light); font-style: italic;
-            margin-bottom: 25px; font-family: var(--font-heading);
-        }
-
-        /* Motto */
-        .motto-box { 
-            margin: 10px 0 30px 0; 
-            opacity: 0; 
-            animation: soulReveal 1s ease-out forwards; 
-            animation-delay: 0.1s;
-        }
-        .motto { font-family: var(--font-heading); font-size: 1.05rem; font-style: italic; color: #555; }
-        .motto span { 
-            color: var(--accent-color); 
-            margin: 0 6px; font-size: 0.6em; vertical-align: middle; opacity: 0.8;
+            font-size: 1.02rem; color: var(--text-main);
+            margin: 22px 0 0; font-family: var(--font-ui); font-weight: 700;
         }
 
         /* Contact */
-        .contact-info p { 
-            font-size: 0.85rem; color: #777; margin-bottom: 6px; font-family: var(--font-main);
+        .profile-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px 30px;
+            margin-top: 30px;
         }
-        .contact-info a { color: #777; border-bottom: none; }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 22px;
+            text-align: left;
+        }
+        .contact-info p { 
+            font-size: 0.85rem; color: var(--text-light); margin-bottom: 0; font-family: var(--font-ui);
+            text-align: left;
+        }
+        .contact-info a { color: var(--accent-color); border-bottom: none; }
         .contact-info a:hover { color: var(--accent-color); }
         
-        .social-icons { margin-top: 25px; gap: 35px; display: flex;}
-        .social-icons a { border: none; font-size: 1.1rem; color: #aaa; transition: 0.3s;}
-        .social-icons a:hover { color: var(--text-main); transform: translateY(-2px); }
+        .social-icons { margin: 0; gap: 20px; display: flex; }
+        .social-icons a { border: none; font-size: 0.86rem; color: var(--accent-color); transition: 0.2s; }
+        .social-icons a i { margin-right: 5px; }
+        .social-icons a:hover { color: #5f1010; }
 
         /* Sections */
-        .section { margin-bottom: 60px; max-width: 1000px; }
+        .section { margin-bottom: 54px; width: 100%; scroll-margin-top: 72px; }
         
         .section-header {
             font-family: var(--font-heading);
             color: #000;
-            margin-bottom: 30px;
-            font-size: 1.5rem;       /* 稍微加大一点点 */
-            font-weight: 600;         /* 稍微加粗，由 500 改为 600 */
-            letter-spacing: 0.05em;   /* 增加字间距，这是高级感的来源 */
-            border-bottom: 2px solid #f4f4f4; /* 加一条极淡的底线辅助分割 */
-            padding-bottom: 8px;
-            display: block;           /* 占满整行 */
+            margin-bottom: 24px;
+            font-size: 1.7rem;
+            font-weight: 400;
+            letter-spacing: 0;
+            padding-bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             width: 100%;
         }
 
+        .section-header::before {
+            content: "";
+            width: 22px;
+            height: 2px;
+            flex: 0 0 auto;
+            background: var(--accent-color);
+        }
+
         p { 
-            margin-bottom: 15px; line-height: 1.8; color: #333; text-align: left; 
-            font-size: 1.02rem; max-width: 950px; 
+            margin-bottom: 15px; line-height: 1.7; color: var(--text-main); text-align: left;
+            font-size: 1rem; max-width: 930px;
         }
         
         /* CSS 样式 */
@@ -223,7 +254,67 @@
         }
 
         .news-content {
-            color: #333;
+            color: var(--text-main);
+        }
+
+        /* Honors */
+        .honor-list { max-width: 760px; }
+
+        .honor-group {
+            display: grid;
+            grid-template-columns: 64px minmax(0, 1fr);
+            gap: 22px;
+            padding: 5px 0 18px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #ebe4de;
+        }
+
+        .honor-item {
+            position: relative;
+            padding: 0 0 12px 16px;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            line-height: 1.55;
+        }
+
+        .honor-item:last-child { padding-bottom: 0; }
+
+        .honor-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62rem;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            opacity: 0.75;
+        }
+
+        .honor-year {
+            font-family: var(--font-ui);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--accent-color);
+            padding-top: 2px;
+        }
+
+        /* Compact projects */
+        .project-list { max-width: 880px; }
+        .project-item {
+            padding: 18px 0 20px;
+            border-bottom: 1px solid #ebe4de;
+        }
+        .project-item:first-child { padding-top: 2px; }
+        .project-item .pub-title { margin-bottom: 8px; }
+        .project-item .pub-meta { margin-bottom: 0; }
+        .project-tags {
+            display: block;
+            margin-top: 7px;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            letter-spacing: 0.02em;
         }
 
         /* Publications Layout */
@@ -328,84 +419,124 @@
         .hobby-item { font-family: var(--font-heading); font-style: italic; color: #555; font-size: 1rem; }
         .hobby-item:not(:last-child)::after { content: "/"; margin-left: 25px; color: #ddd; font-style: normal; }
 
+        .personal-motto {
+            margin-bottom: 22px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+        }
+
         /* Copyright */
         .copyright-footer {
             margin-top: 60px; 
             padding-top: 20px;
             padding-bottom: 10px; 
             font-size: 0.85rem;
-            color: #d0d0d0; 
+            color: #938b84;
             font-family: var(--font-body);
             text-align: left;
         }
 
         @media (max-width: 900px) {
-            .motto-box { display: none; }
-            .sidebar { padding-bottom: 20px; } /* 减少手机版 sidebar 底部留白 */
             body { display: block; height: auto; overflow-y: auto; }
-            .container { max-width: 100%; flex-direction: column; height: auto; align-items: stretch; }
-            .sidebar { 
-                width: 100%; height: auto; border-right: none; border-bottom: 1px solid #f0f0f0; 
-                padding: 60px 20px 40px 20px; position: relative; top: auto;
+            .container { max-width: 100%; padding: 88px 28px 30px; }
+            .sidebar {
+                grid-template-columns: 190px minmax(0, 1fr);
+                gap: 36px;
+                padding-left: 12px;
+                padding-right: 12px;
+                padding-bottom: 45px;
             }
-            .main-content { padding: 40px 25px; height: auto; overflow: visible; }
+            .photo-frame { width: 190px; }
+            .name { font-size: 2.05rem; }
+            .main-content { padding-top: 45px; height: auto; overflow: visible; }
             .pub-item { flex-direction: column; gap: 20px; align-items: flex-start; }
             .pub-image { flex: 0 0 auto; width: 100%; max-width: 100%; }
+        }
+
+        @media (max-width: 680px) {
+            .topbar nav { padding: 0 20px; }
+            .nav-brand { font-size: 1rem; }
+            .nav-links { gap: 18px; }
+            .nav-links a { font-size: 0.82rem; }
+            .container { padding: 92px 22px 25px; }
+            .sidebar {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 30px;
+                padding-left: 0;
+                padding-right: 0;
+                padding-bottom: 38px;
+            }
+            .photo-frame { width: min(190px, 68vw); }
+            .profile-details { width: 100%; padding-top: 0; }
+            .name { align-items: center; text-align: center; }
+            .role { text-align: center; }
+            .profile-meta { justify-content: center; }
+            .contact-info { justify-content: center; }
+            .contact-info p { text-align: center; }
+            .main-content { padding-top: 38px; }
+            .section { margin-bottom: 48px; }
+            .news-item { display: block; }
+            .news-date { display: block; margin-bottom: 3px; }
+            .honor-group { grid-template-columns: 52px minmax(0, 1fr); gap: 12px; }
         }
     </style>
 </head>
 <body>
 
+    <header class="topbar">
+        <nav aria-label="Primary navigation">
+            <a class="nav-brand" href="#">Jingyi Jia</a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#research">Research</a>
+                <a href="#honors">Honors</a>
+            </div>
+        </nav>
+    </header>
+
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
+        <!-- Profile -->
+        <aside class="sidebar" id="home">
             <div class="photo-frame">
                 <img src="assets/images/avatar.jpg" alt="Jingyi Jia">
             </div>
-            
-            <h1 class="name">
-                <div class="name-row">
-                    Jingyi Jia 
-                    <span class="cn-name">贾竟一</span>
+
+            <div class="profile-details">
+                <h1 class="name">
+                    Jingyi Jia
+                    <span class="full-name"><span class="cn-name">贾竟一</span> · Jeremy</span>
+                </h1>
+
+                <div class="role">Ph.D. Student @ HUST</div>
+
+                <div class="profile-meta">
+                    <div class="contact-info">
+                        <p><a href="mailto:jingyijia2005@gmail.com">jingyijia2005@gmail.com</a></p>
+                    </div>
+
+                    <div class="social-icons">
+                        <a href="https://github.com/jingyio" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+                        <a href="https://scholar.google.com/citations?hl=zh-CN&user=GH2xH7UAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i>Google Scholar</a>
+                        <a href="https://x.com/Jingyi_Possible" target="_blank"><i class="fab fa-twitter"></i>X</a>
+                    </div>
                 </div>
-                <span class="pronunciation">/ Jing-Yee Jah /</span>
-            </h1>
-            
-            <div class="role">Undergraduate @ HUST</div>
-
-            <div class="motto-box">
-                <div class="motto">
-                    Denken <span>●</span> Warten <span>●</span> Fasten
-                </div>
-            </div>
-
-            <div class="contact-info">
-                <p><a href="mailto:jingyijia2005@gmail.com">jingyijia2005@gmail.com</a></p>
-                <p>Wuhan, China</p>
-            </div>
-
-            <div class="social-icons">
-                <a href="https://github.com/jiajingyyyyyy" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://scholar.google.com/citations?hl=zh-CN&user=GH2xH7UAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                <a href="mailto:jingyijia2005@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
             <div class="section">
-                <div class="section-header">About</div>
+                <div class="section-header">About Me</div>
                 <p>
-                    I am a senior undergraduate student at the School of Computer Science and Technology, Huazhong University of Science and Technology <strong>(HUST)</strong>. I am fortunate to be advised by <strong>Prof. <a href="https://qinbinli.com/">Qinbin Li</strong></a>.
+                    I am a Ph.D. student at Huazhong University of Science and Technology (HUST), advised by <a href="https://qinbinli.com/">Prof. Qinbin Li</a>. I received my B.Eng. degree from HUST in 2026.
                 </p>
                 <p>
-                    Upon receiving my <strong>B.Eng.</strong> degree in June 2026, I will continue my research journey at HUST as a <strong>Ph.D. student</strong>.
-                </p>
-                <p>
-                    My research interests lie at the intersection of <strong>Large Language Models and Systems</strong>, with a specific focus on designing <strong>efficient agent frameworks</strong>.
+                    My research focuses on large language model systems and <strong>efficient agent frameworks</strong>. I am also exploring <strong>AI for Science (AI4S)</strong>, particularly proteins and drug discovery, and welcome collaboration opportunities in this area.
                 </p>
             </div>
-            
+
             <!-- HTML 结构 -->
             <div class="section">
                 <div class="section-header">News</div>
@@ -414,7 +545,7 @@
                     <span class="news-content">Invited to present our work <strong>"AutoTool"</strong> at the 37th MLNLP Academic Seminar (Meetup)
                         <a href="https://mp.weixin.qq.com/s/vWfoL5pUSCu3yAwAr4S40w?scene=1" target="_blank" class="text-link">Link</a>
                         
-                        <a href="https://github.com/jiajingyyyyyy/AutoTool/blob/main/ppt%26poster/AutoTool.pptx" target="_blank" class="text-link">Slide</a>
+                        <a href="https://github.com/jingyio/AutoTool/blob/main/ppt%26poster/AutoTool.pptx" target="_blank" class="text-link">Slide</a>
                     </span>
                 </div>
                 <!-- News Item -->
@@ -424,7 +555,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section" id="research">
                 <div class="section-header">Research</div>
                 
                 <div class="pub-item">
@@ -442,7 +573,7 @@
                             
                             <span class="pub-links">
                                 <a href="https://arxiv.org/abs/2511.14650" class="text-link">Paper</a>
-                                <a href="https://github.com/jiajingyyyyyy/AutoTool" target="_blank" class="text-link">GitHub</a>
+                                <a href="https://github.com/jingyio/AutoTool" target="_blank" class="text-link">GitHub</a>
                             </span>
                         </div>
                         
@@ -460,25 +591,43 @@
                 </div>
             </div>
 
-            <div class="section">
-                <div class="section-header">Selected Projects</div>
-                
-                <div class="pub-item">
-                    <div class="pub-content">
-                        <div class="pub-title">Virtual Kernel Framework for Containers</div>
-                        <div class="pub-meta">
-                            Implemented independent task scheduling within containers utilizing Linux cgroup and namespace mechanisms.<br>
-                            <span style="font-size:0.85em; color:#999;">Linux Kernel / Virtualization</span>
+            <div class="section" id="honors">
+                <div class="section-header">Honors</div>
+                <div class="honor-list">
+                    <div class="honor-group">
+                        <div class="honor-year">2026</div>
+                        <div class="honor-entries">
+                            <div class="honor-item"><strong>CCF Elite Collegiate Award</strong></div>
+                            <div class="honor-item"><strong>Outstanding Graduate of HUST</strong></div>
+                            <div class="honor-item"><strong>Hisense Scholarship</strong></div>
+                        </div>
+                    </div>
+                    <div class="honor-group">
+                        <div class="honor-year">2025</div>
+                        <div class="honor-entries">
+                            <div class="honor-item"><strong>Tencent Scholarship</strong></div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="pub-item">
-                    <div class="pub-content">
+            </div>
+
+            <div class="section">
+                <div class="section-header">Selected Projects</div>
+
+                <div class="project-list">
+                    <div class="project-item">
+                        <div class="pub-title">Virtual Kernel Framework for Containers</div>
+                        <div class="pub-meta">
+                            Implemented independent task scheduling within containers utilizing Linux cgroup and namespace mechanisms.
+                            <span class="project-tags">Linux Kernel · Virtualization</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
                         <div class="pub-title">RoboMaster Radar Station Maintenance</div>
                         <div class="pub-meta">
-                            Participated in the <strong>RoboMaster University Championship</strong>. Calibrated radar extrinsics and camera intrinsics, and trained YOLO models for real-time detection.<br>
-                            <span style="font-size:0.85em; color:#999;">Computer Vision / Robotics</span>
+                            Participated in the RoboMaster University Championship. Calibrated radar extrinsics and camera intrinsics, and trained YOLO models for real-time detection.
+                            <span class="project-tags">Computer Vision · Robotics</span>
                         </div>
                     </div>
                 </div>
@@ -486,6 +635,7 @@
 
             <div class="section">
                 <div class="section-header">Personal</div>
+                <div class="personal-motto">Denken · Warten · Fasten</div>
                 <div class="hobby-list">
                     <div class="hobby-item">Philosophy</div>
                     <div class="hobby-item">Cinema</div>
@@ -495,7 +645,7 @@
             </div>
 
             <div class="copyright-footer">
-                Copyright © 2025 Jingyi Jia
+                Copyright © 2026 Jingyi Jia · Last updated: August 2026
             </div>
         </main>
     </div>
