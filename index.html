@@ -575,17 +575,17 @@
                         </div>
                         <div class="pub-meta">
                             <strong>Jingyi Jia</strong>, Jiale Wang, Haoyi Zhang, Qinbin Li<sup>*</sup>, Xiaofei Liao, Hai Jin<br>
-                            <span class="pub-venue">ACM SIGOPS ATC, 2026</span> · * Corresponding author
+                            <span class="pub-venue">ACM SIGOPS ATC, 2026</span>
                         </div>
 
                         <div class="pub-desc">
                             <p>
                                 <span class="desc-label">Motivation</span>
-                                LLM-centric agents route every tool result back to the model, forcing one monolithic LLM loop to handle both routine execution and semantic reasoning. Can structure-semantic separation break this architecture by moving verifiable progress into the runtime?
+                                Can structure-semantic separation break the monolithic LLM agent loop by moving verifiable execution into the runtime?
                             </p>
                             <p>
                                 <span class="desc-label">Method</span>
-                                <strong>MotifAgent</strong> realizes <strong>structure-semantic separation</strong> with executable motif graphs and three types of operations: <strong>structural</strong> operations execute verified tool and parameter flows in the runtime; <strong>semi-structural</strong> operations use graph constraints for bounded mediation, such as filling missing information; and <strong>semantic</strong> operations ask the LLM to resolve ambiguity or unexpected outcomes. Motif progress also guides scheduling and KV-cache retention in the serving backend.
+                                <strong>MotifAgent</strong> uses executable motif graphs for <strong>structure-semantic separation</strong>: <strong>structural</strong> operations execute verified tool flows, <strong>semi-structural</strong> operations mediate missing information within graph constraints, and <strong>semantic</strong> operations resolve ambiguity with the LLM. Motif progress also guides scheduling and KV-cache retention.
                             </p>
                         </div>
                     </div>
